@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yousef Gamal Salem | AI Engineering Student, Machine Learning & Computer Vision</title>
+<meta name="description" content="Yousef Gamal Salem is an AI Engineering student at NINU building practical machine learning and computer vision solutions in Python, TensorFlow and Keras. Open to AI/ML and software engineering internships.">
+<link rel="canonical" href="https://YOUR-DOMAIN.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yousef Gamal Salem | AI Engineering Student">
+<meta property="og:description" content="Practical machine learning and computer vision: CNN classification, image preprocessing and PSO hyperparameter search.">
+<meta property="og:image" content="https://YOUR-DOMAIN.vercel.app/assets/yousef.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1220;--surface:#131b2e;--line:#26314a;--text:#e6ebf5;--muted:#93a0ba;--accent:#7fd1c7;--accent-ink:#06211e;--r:14px;
+--display:'Bricolage Grotesque',Georgia,serif;--body:Inter,system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+section{padding:5.5rem 0}
+h1,h2,h3{font-family:var(--display);line-height:1.12;letter-spacing:-.015em}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:60ch;margin-bottom:2.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.3rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--text);font:500 .95rem var(--body);text-decoration:none;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+.btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+/* nav */
+header{position:fixed;inset:0 0 auto;z-index:20;backdrop-filter:blur(14px);background:rgba(12,18,32,.72);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:700 1.1rem var(--display);text-decoration:none}
+nav ul{display:flex;gap:1.6rem;list-style:none;padding:0}
+nav ul a{color:var(--muted);text-decoration:none;font-size:.92rem;transition:color .2s}
+nav ul a:hover{color:var(--text)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:.45rem .8rem;font:inherit;cursor:pointer}
+/* hero */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:7rem 0 4rem;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+#hero:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 25% 40%,rgba(12,18,32,.9),rgba(12,18,32,.35) 70%);pointer-events:none}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr 1fr;gap:3.5rem;align-items:center}
+.hero-grid>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero-grid>*:nth-child(2){animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+.role{color:var(--accent);font-weight:500;margin-bottom:1rem}
+h1{font-size:clamp(2.3rem,5.6vw,4rem);margin-bottom:1.2rem}
+.intro{color:var(--muted);max-width:52ch;margin-bottom:2rem;font-size:1.06rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.8rem}
+.social{display:flex;gap:1.2rem;flex-wrap:wrap}
+.social a{color:var(--muted);text-decoration:none;font-size:.92rem;border-bottom:1px solid var(--line)}
+.social a:hover{color:var(--text)}
+.photo{position:relative;justify-self:center;width:min(360px,80%)}
+.photo img{display:block;width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 22%;border-radius:22px;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(127,209,199,.35)}
+.photo:before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--accent);border-radius:26px;opacity:.35}
+/* about + usp */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.about p+p{margin-top:1rem}
+.about p{color:#c3cce0}
+.facts{display:grid;gap:.9rem;align-content:start}
+.fact{padding:1.1rem 1.2rem;border-left:2px solid var(--accent);background:var(--surface);border-radius:0 var(--r) var(--r) 0}
+.fact b{display:block;font-family:var(--display);font-size:1.05rem}
+.fact span{color:var(--muted);font-size:.93rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem}
+.card h3{font-size:1.15rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.95rem}
+/* skills */
+.skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.skill h3{font-size:1rem;color:var(--accent);margin-bottom:.8rem;font-family:var(--body);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.tag{padding:.28rem .7rem;border:1px solid var(--line);border-radius:999px;font-size:.85rem;color:#c3cce0;background:rgba(255,255,255,.02)}
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.6rem}
+.filters button{padding:.4rem .95rem;border-radius:999px;border:1px solid var(--line);background:none;color:var(--muted);font:inherit;font-size:.9rem;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.2rem}
+.proj{display:flex;flex-direction:column;text-align:left;cursor:pointer;color:inherit;font:inherit;transition:transform .25s,border-color .25s}
+.proj:hover{transform:translateY(-4px);border-color:var(--accent)}
+.proj.featured{grid-column:1/-1;background:linear-gradient(135deg,#16233a,var(--surface))}
+.proj h3{font-size:1.3rem}
+.proj .tags{margin:auto 0 0;padding-top:1.1rem}
+.more{margin-top:1rem;color:var(--accent);font-size:.9rem}
+dialog{margin:auto;width:min(640px,92vw);max-height:88vh;overflow:auto;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:18px;padding:2rem}
+dialog[open]{animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:scale(.97) translateY(8px)}}
+dialog::backdrop{background:rgba(5,8,16,.7);backdrop-filter:blur(4px)}
+dialog h3{font-size:1.6rem;margin-bottom:.6rem}
+dialog h4{font:500 .8rem var(--body);color:var(--accent);margin:1.3rem 0 .4rem}
+dialog li{margin:.3rem 0 .3rem 1.1rem;color:#c3cce0}
+.x{float:right;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:.3rem .7rem;cursor:pointer;font:inherit}
+/* timeline */
+.tl{position:relative;padding-left:1.8rem;border-left:1px solid var(--line)}
+.tl-item{position:relative;padding-bottom:1.5rem}
+.tl-item:before{content:"";position:absolute;left:calc(-1.8rem - 5px);top:.5rem;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(127,209,199,.15)}
+.tl-item h3{font-size:1.2rem}.tl-item p{color:var(--muted)}
+/* certs / github */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
+.certs img{width:100%;border-radius:8px;margin-bottom:.8rem;cursor:zoom-in}
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.clist{list-style:none;padding:0;display:grid;gap:.9rem}
+.clist a{text-decoration:none;color:#c3cce0}.clist a:hover{color:var(--accent)}
+.clist small{display:block;color:var(--muted)}
+form{display:grid;gap:.9rem}
+label{font-size:.9rem;color:var(--muted);display:grid;gap:.35rem}
+input,textarea{background:var(--bg);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:.75rem .9rem;font:inherit}
+textarea{min-height:120px;resize:vertical}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+[hidden]{display:none!important}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+ .hero-grid,.two,.contact-grid{grid-template-columns:1fr}
+ .photo{order:-1;width:min(240px,60%);justify-self:start}
+ .menu{display:block}
+ nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem 1.25rem;border-bottom:1px solid var(--line);gap:1rem}
+ nav ul.open{display:flex}
+ section{padding:4rem 0}
+ .projects{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav aria-label="Main">
+ <a class="logo" href="#hero">Yousef Gamal Salem</a>
+ <button class="menu" aria-expanded="false" aria-controls="links">Menu</button>
+ <ul id="links">
+  <li><a href="#about">About</a></li><li><a href="#why">Why me</a></li><li><a href="#skills">Skills</a></li>
+  <li><a href="#projects">Projects</a></li><li><a href="#certs" data-opt="certs">Certificates</a></li><li><a href="#education">Education</a></li>
+  <li><a href="#resume">CV</a></li><li><a href="#contact">Contact</a></li>
+ </ul></nav></div></header>
+
+<main>
+<section id="hero" aria-label="Introduction">
+ <canvas id="net" aria-hidden="true"></canvas>
+ <div class="wrap hero-grid">
+  <div>
+   <p class="role">AI Engineering student · Machine Learning &amp; Computer Vision</p>
+   <h1>Practical AI, from raw MRI scans to tuned neural networks.</h1>
+   <p class="intro">I'm Yousef Gamal Salem, an Artificial Intelligence Engineering student building practical AI and machine learning solutions in Python. I'm looking for an AI/ML or software engineering internship.</p>
+   <div class="cta"><a class="btn primary" href="#projects">View My Projects</a><a class="btn" id="cv-dl" href="assets/Yousef_Gamal_Salem_CV.pdf" download>Download CV</a></div>
+   <div class="social" id="social"></div>
+  </div>
+  <div class="photo"><img src="assets/yousef.jpg" width="560" height="560" alt="Portrait of Yousef Gamal Salem in a black blazer and white shirt"></div>
+ </div>
+</section>
+
+<section id="about"><div class="wrap two">
+ <div class="about">
+  <h2>About</h2>
+  <p>I'm a fourth-year AI Engineering student at New Ismailia National University (NINU) in Ismailia, Egypt, with an expected graduation in 2028.</p>
+  <p>My strongest work so far is in computer vision: a four-class brain MRI classifier built with EfficientNetB0 transfer learning, a custom preprocessing pipeline and Grad-CAM heatmaps that show what the model focused on. I work mainly in Python with TensorFlow, Keras and scikit-learn.</p>
+  <p>Alongside the AI work, I've built a PostgreSQL-backed Streamlit app, an AT89C51 temperature monitor, an ESP32 smart-home concept and a Cisco Packet Tracer lab network. That gives me a view of how models, data and hardware fit into a full system.</p>
+ </div>
+ <div class="facts" id="facts"></div>
+</div></section>
+
+<section id="why"><div class="wrap">
+ <h2>Why work with me</h2>
+ <p class="lead">Four things my projects show, without inflating them.</p>
+ <div class="cards" id="usp"></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+ <h2>Technical skills</h2>
+ <p class="lead">Grouped by what I actually use them for.</p>
+ <div class="skillgrid" id="skillgrid"></div>
+ <h2 style="margin-top:3.5rem;font-size:1.5rem" id="soft-h" hidden>Soft skills</h2>
+ <div class="tags" id="soft" hidden></div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+ <h2>Selected projects</h2>
+ <p class="lead">Select a project for the problem, the approach and the tools.</p>
+ <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+ <div class="projects" id="projgrid"></div>
+</div></section>
+
+<section id="certs" hidden><div class="wrap">
+ <h2>Certificates</h2><div class="certs" id="certgrid"></div>
+</div></section>
+
+<section id="education"><div class="wrap">
+ <h2>Education</h2>
+ <div class="tl" id="tl"></div>
+</div></section>
+
+<section id="github" hidden><div class="wrap">
+ <h2>On GitHub</h2><div class="cards" id="repos"></div>
+</div></section>
+
+<section id="resume"><div class="wrap">
+ <h2>CV</h2>
+ <div class="card" style="max-width:720px">
+  <h3>Yousef Gamal Salem</h3>
+  <p style="margin:.5rem 0 1.2rem">AI Engineering student at NINU (expected 2028). Python, C and SQL; CNNs, computer vision and hyperparameter optimization; TensorFlow, Keras, scikit-learn, PySwarms; PostgreSQL and Streamlit. Seeking a software engineering or AI/ML internship.</p>
+  <div class="cta" style="margin:0"><a class="btn primary" href="assets/Yousef_Gamal_Salem_CV.pdf" download>Download CV</a><a class="btn" id="cv-view" href="assets/Yousef_Gamal_Salem_CV.pdf">Open CV</a></div>
+ </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact-grid">
+ <div>
+  <h2>Contact</h2>
+  <p class="lead">Open to AI/ML and software engineering internships. Email is the fastest way to reach me.</p>
+  <ul class="clist" id="clist"></ul>
+  <div class="cta" style="margin-top:1.5rem"><a class="btn primary" id="mail" href="#">Email me</a><button class="btn" id="copy" type="button">Copy email</button></div>
+  <p id="copied" role="status" style="color:var(--accent);min-height:1.5em;margin-top:.6rem"></p>
+ </div>
+ <form id="form" aria-label="Contact form">
+  <label>Name<input name="name" autocomplete="name" required></label>
+  <label>Email<input name="email" type="email" autocomplete="email" required></label>
+  <label>Message<textarea name="message" required></textarea></label>
+  <button class="btn primary" type="submit">Send message</button>
+  <p style="color:var(--muted);font-size:.85rem">This form opens your email app with the message filled in. No data is stored on this site.</p>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Yousef Gamal Salem</span><span>Ismailia, Egypt</span></div></footer>
+
+<dialog id="pd" aria-labelledby="pd-t"></dialog>
+<dialog id="cd" aria-label="Certificate"></dialog>
+
+<script>
+/* ===== Content: edit this block to update the site ===== */
+const D={
+ email:"yousefgamalsalem@gmail.com",phone:"01069876276",phoneIntl:"+201069876276",location:"Ismailia, Egypt",
+ cv:"assets/Yousef_Gamal_Salem_CV.pdf",
+ socials:[{label:"LinkedIn",url:"https://linkedin.com/in/yousef-gamal-0374a8313"}], // add {label:"GitHub",url:"..."} here
+ github:"D.usef55", // GitHub username: drives the GitHub link and repo list
+ facts:[["B.Sc. AI Engineering","New Ismailia National University (NINU), expected 2028"],["Core stack","Python, TensorFlow, Keras, scikit-learn, SQL"],["Focus","CNNs, computer vision, image preprocessing, hyperparameter optimization"]],
+ usp:[
+  ["Computer vision you can inspect","My MRI classifier fine-tunes EfficientNetB0 after a preprocessing pipeline (denoising, brain cropping, histogram equalization) and adds Grad-CAM heatmaps to explain predictions. The project report records 99% test accuracy."],
+  ["Tuning models systematically","I used Particle Swarm Optimization with PySwarms to search CNN hyperparameters instead of guessing them by hand."],
+  ["Data and app layers too","I've designed a relational database with ER modeling and triggers, and built a Streamlit front end on PostgreSQL hosted on Neon."],
+  ["Comfortable near hardware","Microcontroller, ADC and EPROM interfacing in C, ESP32 relay control and a 338-PC campus network model (team project) give me context for AI that ships into real systems."]],
+ skills:[
+  ["Programming",["Python","C","SQL"]],
+  ["AI / ML",["Machine Learning","Deep Learning","CNNs","Computer Vision","Image Preprocessing","Data Augmentation","Hyperparameter Optimization","Particle Swarm Optimization (PSO)"]],
+  ["Frameworks / libraries",["TensorFlow","Keras","scikit-learn","PySwarms"]],
+  ["Databases / apps",["PostgreSQL","Neon","Streamlit"]],
+  ["Embedded / IoT",["ESP32","AT89C51","ADC0804","LM35","LCD","Keil","Proteus"]],
+  ["Networking",["Cisco Packet Tracer","Routers","Switches","Access Points","DHCP"]]],
+ soft:["Fast Learner","Problem Solving","Technical Thinking","Teamwork & Collaboration","Independent Work","Adaptability","Curiosity & Continuous Learning","Analytical Thinking","Attention to Detail","Self-Motivation","Research & Self-Learning","Communication Skills"],
+ projects:[
+  {name:"Brain Tumor MRI Classification",cat:"AI / ML",featured:true,meta:"Deep learning · Kaggle Brain Tumor MRI Dataset",
+   desc:"A four-class MRI classifier (glioma, meningioma, pituitary, no tumor) with Grad-CAM heatmaps that show what the model looked at.",
+   problem:"Reading brain MRI scans by hand is slow and varies between readers. This project classifies scans automatically and adds heatmaps so each prediction can be inspected.",
+   tech:["Python","TensorFlow","Keras","EfficientNetB0","Grad-CAM","scikit-learn","PySwarms"],
+   features:["Transfer learning with EfficientNetB0, an extra convolutional layer, global average pooling and softmax, trained with freezing and fine-tuning stages","Preprocessing for dataset flaws: grayscale conversion, Gaussian denoising, edge-based brain cropping and centering (center-crop fallback), histogram equalization","Grad-CAM heatmaps highlighting the regions that drove each prediction","Adam, categorical crossentropy, batch size 32, 224×224 input, early stopping and learning-rate reduction","99% classification accuracy on the test set, as stated in the project report; U-Net and ResNet were tried and set aside","Data augmentation and Particle Swarm Optimization (PySwarms) for CNN hyperparameter search, as listed in my CV"],
+   limits:"Grad-CAM shows where the model focused. It is not pixel-level tumor segmentation, and results depend on dataset quality."},
+  {name:"Citizen Registry Database",cat:"Data",meta:"Database course project",img:"assets/er-diagram.jpg",alt:"Entity-relationship diagram of the citizen registry with Citizen, Address, BirthRecord, DeathRecord, NationalIDCard, Family, FamilyMember and MarriageRecord",
+   desc:"A relational citizen registry with a Streamlit interface on Neon PostgreSQL.",
+   problem:"Keeping citizen, family and civil-status records in one structured schema that can be queried and edited through a simple front end.",
+   tech:["PostgreSQL","Neon","Streamlit","SQL"],
+   features:["ER model covering Citizen, Address, BirthRecord, DeathRecord, NationalIDCard, Family, FamilyMember and MarriageRecord","Relational structure, SQL queries and database triggers","Streamlit front end connected to PostgreSQL hosted on Neon"]},
+  {name:"Digital Temperature Sensor",cat:"Embedded",meta:"Team project (5 students) · Embedded Systems, 2025/2026",img:"assets/temp-sensor-schematic.jpg",alt:"Proteus schematic of the AT89C51 temperature sensor with ADC0804, LM35, 74LS373 latch, 27C64 EPROM and LCD",
+   desc:"An AT89C51 temperature monitor with external EPROM, simulated end to end in Proteus.",
+   problem:"Reading an analog temperature and showing it digitally on a classic 8051 system built from discrete parts.",
+   tech:["C","Keil","Proteus","AT89C51","ADC0804","LM35"],
+   features:["AT89C51 runs code from an external 27C64 EPROM, with a 74LS373 latching the low address byte on ALE","LM35 output (10 mV/°C) read by an ADC0804 with 1.28 V on Vref/2 for one degree per step","ADC clocked by a 10 kΩ / 150 pF RC network (about 606 kHz)","LM016L LCD in 4-bit mode with a contrast potentiometer","Complete system simulated in Proteus"]},
+  {name:"Smart Home IoT System",cat:"Embedded",meta:"Group project and presentation",
+   desc:"An ESP32 smart-home control concept with a 4-channel relay.",
+   problem:"Switching home appliances with a button or a voice command instead of a wall switch.",
+   tech:["ESP32","4-Channel Relay","Alexa","IFTTT"],
+   features:["ESP32 board driving a 4-channel relay module, demonstrated with three lamps and a fan","Aim: connect Alexa (via a phone) to the relay; Google Assistant and IFTTT were also explored","Covers relay wiring (COM, NO, NC) and flyback-diode protection"],
+   limits:"A concept and demonstration, not a finished product."},
+  {name:"Computer Networking Design",cat:"Networking",meta:"Team project · Computer Network, 2025/2026",img:"assets/network-topology.jpg",alt:"Cisco Packet Tracer topology of three NINU buildings with routers, switches and lab PCs",
+   desc:"A Packet Tracer model of three NINU buildings sized for 300+ users.",
+   problem:"Without a structured design, university labs risk IP conflicts, coverage gaps and inefficient routing as they grow.",
+   tech:["Cisco Packet Tracer","Routers","Switches","Access Points","DHCP"],
+   features:["338 PCs across three buildings, each lab on its own 192.168.x.0/24 network","Wired star LANs with static IPs; wireless labs on access points with DHCP configured in the router CLI","Cisco 2911 routers in a ring, with 2960-24TT and 3650-24PS switches","Cost estimate of about $116,350 and a written improvement plan (VLANs, ACLs, OSPF/EIGRP, HSRP/VRRP)"],
+   limits:"A simulation; the report lists VLAN segmentation and security hardening as future work."}],
+ certificates:[], // {title,org,date,desc,img,url}
+ timeline:[{title:"B.Sc. in AI Engineering",org:"New Ismailia National University (NINU), Ismailia, Egypt",date:"Fourth year · Expected graduation 2028",desc:"Coursework and projects in machine learning, computer vision, databases, embedded systems, IoT and networking."}]
+};
+
+/* ===== Rendering ===== */
+if(D.github){D.socials.unshift({label:"GitHub",url:"https://github.com/"+D.github});D.githubUser=D.github}
+const $=s=>document.querySelector(s),el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tags=a=>a.map(t=>`<span class="tag">${esc(t)}</span>`).join("");
+$("#yr").textContent=new Date().getFullYear();
+$("#mail").href="mailto:"+D.email;
+$("#social").innerHTML=D.socials.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a>`).join("")+`<a href="mailto:${D.email}">Email</a>`;
+$("#facts").innerHTML=D.facts.map(f=>`<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join("");
+$("#usp").innerHTML=D.usp.map(u=>`<div class="card rv"><h3>${esc(u[0])}</h3><p>${esc(u[1])}</p></div>`).join("");
+$("#skillgrid").innerHTML=D.skills.map(s=>`<div class="card skill rv"><h3>${esc(s[0])}</h3><div class="tags">${tags(s[1])}</div></div>`).join("");
+if(D.soft.length){$("#soft-h").hidden=$("#soft").hidden=false;$("#soft").innerHTML=tags(D.soft)}
+$("#tl").innerHTML=D.timeline.map(t=>`<div class="tl-item rv"><h3>${esc(t.title)}</h3><p>${esc(t.org)}</p><p><small>${esc(t.date)}</small></p><p style="margin-top:.4rem">${esc(t.desc)}</p></div>`).join("");
+$("#clist").innerHTML=`<li><a href="mailto:${D.email}"><small>Email</small>${D.email}</a></li><li><a href="tel:${D.phoneIntl}"><small>Phone</small>${D.phone}</a></li><li><small style="color:var(--muted)">Location</small>${D.location}</li>`+D.socials.map(s=>`<li><a href="${s.url}" target="_blank" rel="noopener noreferrer"><small>${esc(s.label)}</small>${esc(s.url.replace(/^https?:\/\//,""))}</a></li>`).join("");
+
+/* projects */
+const pg=$("#projgrid"),pd=$("#pd");
+const cats=["All",...new Set(D.projects.map(p=>p.cat))];
+function drawProjects(f){
+ pg.innerHTML="";
+ D.projects.forEach((p,i)=>{if(f!=="All"&&p.cat!==f)return;
+  const b=el("button","card proj rv in"+(p.featured&&f==="All"?" featured":""),`<h3>${esc(p.name)}</h3><p style="margin-top:.4rem">${esc(p.desc)}</p><div class="tags">${tags(p.tech)}</div><span class="more">View details</span>`);
+  b.type="button";b.onclick=()=>openProject(i);pg.append(b)})}
+function openProject(i){const p=D.projects[i];
+ pd.innerHTML=`<button class="x" type="button" aria-label="Close">Close</button><h3 id="pd-t">${esc(p.name)}</h3><p style="color:var(--muted)">${esc(p.desc)}</p>${p.meta?`<p><small style="color:var(--accent)">${esc(p.meta)}</small></p>`:""}${p.img?`<img loading="lazy" src="${p.img}" alt="${esc(p.alt||p.name)}" style="width:100%;margin-top:1rem;border-radius:10px;border:1px solid var(--line);background:#fff">`:""}<h4>Problem</h4><p>${esc(p.problem)}</p><h4>What I built</h4><ul>${p.features.map(f=>`<li>${esc(f)}</li>`).join("")}</ul>${p.limits?`<h4>Limits</h4><p>${esc(p.limits)}</p>`:""}<h4>Tools</h4><div class="tags">${tags(p.tech)}</div>${(p.github||p.demo)?`<div class="cta" style="margin:1.4rem 0 0">${p.github?`<a class="btn" target="_blank" rel="noopener noreferrer" href="${p.github}">GitHub</a>`:""}${p.demo?`<a class="btn primary" target="_blank" rel="noopener noreferrer" href="${p.demo}">Live demo</a>`:""}</div>`:""}`;
+ pd.querySelector(".x").onclick=()=>pd.close();pd.showModal()}
+$("#filters").innerHTML="";
+cats.forEach((c,i)=>{const b=el("button",null,esc(c));b.type="button";b.setAttribute("aria-pressed",i===0);
+ b.onclick=()=>{document.querySelectorAll("#filters button").forEach(x=>x.setAttribute("aria-pressed",x===b));drawProjects(c)};$("#filters").append(b)});
+drawProjects("All");
+[pd,$("#cd")].forEach(d=>d.addEventListener("click",e=>{if(e.target===d)d.close()}));
+
+/* certificates (section stays hidden until data is added) */
+if(D.certificates.length){$("#certs").hidden=false;
+ $("#certgrid").innerHTML=D.certificates.map((c,i)=>`<div class="card"><img loading="lazy" src="${c.img}" alt="Certificate: ${esc(c.title)}" data-i="${i}" tabindex="0"><h3>${esc(c.title)}</h3><p>${esc(c.org)} · ${esc(c.date)}</p><p>${esc(c.desc||"")}</p>${c.url?`<p><a href="${c.url}" target="_blank" rel="noopener noreferrer">Verify credential</a></p>`:""}</div>`).join("");
+ $("#certgrid").onclick=e=>{const i=e.target.dataset.i;if(i==null)return;const c=D.certificates[i],d=$("#cd");d.innerHTML=`<button class="x" type="button">Close</button><img style="width:100%;margin-top:1rem;border-radius:8px" src="${c.img}" alt="Certificate: ${esc(c.title)}">`;d.querySelector(".x").onclick=()=>d.close();d.showModal()}}
+document.querySelector('[data-opt=certs]').parentElement.hidden=!D.certificates.length;
+
+/* optional GitHub repos; failure never affects the page */
+if(D.githubUser){fetch(`https://api.github.com/users/${D.githubUser}/repos?sort=updated&per_page=6`).then(r=>r.ok?r.json():[]).then(rs=>{
+ if(!rs.length)return;$("#github").hidden=false;
+ $("#repos").innerHTML=rs.filter(r=>!r.fork).map(r=>`<a class="card" style="text-decoration:none" target="_blank" rel="noopener noreferrer" href="${r.html_url}"><h3>${esc(r.name)}</h3><p>${esc(r.description||"")}</p><p><small>${esc(r.language||"")}</small></p></a>`).join("")}).catch(()=>{})}
+
+/* contact */
+$("#copy").onclick=async()=>{try{await navigator.clipboard.writeText(D.email);$("#copied").textContent="Email copied."}catch{$("#copied").textContent="Copy failed. Email: "+D.email}};
+$("#form").onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);
+ location.href=`mailto:${D.email}?subject=${encodeURIComponent("Portfolio message from "+f.get("name"))}&body=${encodeURIComponent(f.get("message")+"\n\n"+f.get("name")+" ("+f.get("email")+")")}`};
+
+/* nav */
+const mb=document.querySelector(".menu"),ul=$("#links");
+mb.onclick=()=>{const o=ul.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
+ul.onclick=e=>{if(e.target.tagName==="A"){ul.classList.remove("open");mb.setAttribute("aria-expanded",false)}};
+
+/* scroll reveal */
+const rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!rm&&"IntersectionObserver"in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+ document.querySelectorAll(".rv:not(.in)").forEach((n,i)=>{n.style.transitionDelay=(i%4)*70+"ms";io.observe(n)})}else document.querySelectorAll(".rv").forEach(n=>n.classList.add("in"));
+
+/* neural-network canvas: light, pauses off-screen, static when motion is reduced */
+(function(){const c=$("#net"),x=c.getContext("2d");let w,h,ns=[],mx=-999,my=-999,run=true;
+ function size(){const r=c.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);w=r.width;h=r.height;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);
+  const n=Math.round(Math.min(70,w*h/16000));ns=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25}))}
+ function draw(){x.clearRect(0,0,w,h);
+  for(const a of ns){if(!rm){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>w)a.vx*=-1;if(a.y<0||a.y>h)a.vy*=-1}}
+  for(let i=0;i<ns.length;i++){const a=ns[i];
+   for(let j=i+1;j<ns.length;j++){const b=ns[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){x.strokeStyle=`rgba(127,209,199,${.22*(1-d/130)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+   const m=Math.hypot(a.x-mx,a.y-my);x.fillStyle=m<140?"rgba(127,209,199,.95)":"rgba(147,160,186,.6)";x.beginPath();x.arc(a.x,a.y,m<140?2.6:1.8,0,7);x.fill()}
+  if(run&&!rm)requestAnimationFrame(draw)}
+ addEventListener("resize",()=>{size();if(rm)draw()});
+ c.parentElement.addEventListener("pointermove",e=>{const r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+ new IntersectionObserver(es=>{const v=es[0].isIntersecting;if(v&&!run&&!rm){run=true;draw()}run=v}).observe(c);
+ size();draw()})();
+</script>
+</body>
+</html>
